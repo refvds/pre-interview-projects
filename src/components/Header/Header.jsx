@@ -4,7 +4,7 @@ import searchIcon from '../../assets/icons/sm-search-icon.svg';
 
 export const Header = () => {
   return (
-    <MantineHeader bg={'var(--primary-color)'} w={'100%'} h={72} mb={39}> 
+    <MantineHeader bg={'var(--primary-color)'} w={'100%'} h={72} mb={28}> 
         <Container py={16} size={1317}>
             <Flex gap={22}>
                 <img src={ghLogo} />

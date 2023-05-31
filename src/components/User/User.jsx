@@ -3,11 +3,11 @@ import { compactNumber } from "../../utilities";
 import followerIcon from '../../assets/icons/users-icon.svg';
 import followersIcon from '../../assets/icons/user-icon.svg';
 
-export const User = ({name, username, avatar, followers, following, link}) => {
+export const User = ({name, username, avatar, followers, following, link, style}) => {
     const formattedFollowers = compactNumber(followers);
     const formattedFollowing = compactNumber(following);
     return (
-    <Card p={0}>
+    <Card p={0} pt={12} maw={292} style={style}> 
         <Card.Section mb={28} pt={16} pl={16}>
             <Avatar src={avatar} size={280} radius={"50%"} p={0} />
         </Card.Section>
