@@ -3,17 +3,17 @@ import { compactNumber } from "../../utilities";
 import followerIcon from '../../assets/icons/users-icon.svg';
 import followersIcon from '../../assets/icons/user-icon.svg';
 
-export const User = ({name, username, avatar, followers, following, link, style}) => {
-    const formattedFollowers = compactNumber(followers);
-    const formattedFollowing = compactNumber(following);
+export const User = ({user,style}) => {
+    const formattedFollowers = compactNumber(user.followers);
+    const formattedFollowing = compactNumber(user.following);
     return (
     <Card p={0} pt={12} maw={292} style={style}> 
         <Card.Section mb={28} pt={16} pl={16}>
-            <Avatar src={avatar} size={280} radius={"50%"} p={0} />
+            <Avatar src={user.avatar_url} size={280} radius={"50%"} p={0} />
         </Card.Section>
-        <Title order={2} weight={600} mb={12}>{name}</Title>
-        <a style={{cursor: 'pointer'}} href={link} target="_blank"  rel="noreferrer">
-        <Title order={3} weight={400} fz={18} color='var(--primary-color)' lh='22px'>{username}</Title>
+        <Title order={2} weight={600} mb={12}>{user.name}</Title>
+        <a style={{cursor: 'pointer'}} href={user.html_url} target="_blank"  rel="noreferrer">
+        <Title order={3} weight={400} fz={18} color='var(--primary-color)' lh='22px'>{user.login}</Title>
         </a>
         <Group mt={32} p={0} spacing={'1.5rem'}>
             <Group p={0} spacing={'.5rem'}>

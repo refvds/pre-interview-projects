@@ -73,7 +73,7 @@ button::-moz-focus-inner {
     border: 0;
 }
 
-label {
+label, a {
     cursor: pointer;
 }
 

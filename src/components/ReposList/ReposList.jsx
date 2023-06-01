@@ -17,12 +17,11 @@ export const ReposList = ({repos, style}) => {
     
     return (
         <div style={{...style,maxWidth: 877, }}>
-
             <div style={{height: 520}}>
                 {
-                      currentRepos.map(repo=>(
+                    currentRepos.map(repo=>(
                         <Card key={repo.id} mb={24} h={112} px={32} py={24} radius={6}>
-                            <a href={repo.html_url} style={{display: "inline-block",marginBottom: 12}}>
+                            <a href={repo.html_url} target="_blank"  rel="noreferrer" style={{display: "inline-block",marginBottom: 12}}>
                                 <Title order={3} weight={500} size={24} color='var(--primary-color)' >{repo.name}</Title>
                             </a>
                             <Title order={4} fz='1rem' weight={400}>{repo.description}</Title>
@@ -31,7 +30,7 @@ export const ReposList = ({repos, style}) => {
                 }
                 </div>
               
-<Group position="right">
+        <Group position="right">
             <Pagination 
             mt={24}
                 value={pagination.active}
