@@ -1,0 +1,32 @@
+@use './normalize';
+@use './variables';
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Comfortaa';
+  background: var(--body-background-gradient);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+svg {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+#app {
+  width: 1400px;
+  height: 600px;
+  padding: 60px;
+  display: flex;
+  gap: 20px;
+  background: var(--app-background-gradient);
+  border-radius: 20px;
+}

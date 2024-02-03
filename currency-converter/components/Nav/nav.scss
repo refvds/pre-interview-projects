@@ -1,0 +1,36 @@
+aside {
+  padding-top: 20px;
+  background-color: white;
+  box-shadow: -10px 4px 12px -2px rgba(130, 139, 146, 0.2);
+  border-radius: 20px;
+  width: 60px;
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.nav__item {
+  max-width: 40px;
+  max-height: 40px;
+
+  &:nth-of-type(1) {
+    background-color: var(--primary);
+    border-radius: 10px;
+    margin-bottom: 150px;
+  }
+
+  &:nth-of-type(2):hover,
+  &:nth-of-type(3):hover {
+    background-color: var(--secondary);
+    border-radius: 10px;
+    svg {
+      transform: scale(0.8);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}

@@ -1,24 +1,25 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import './styles/main.scss';
+import logo from './public/logo.svg';
+import convert from './public/convert.svg';
+import rate from './public/rate.svg';
+import Nav from './components/Nav/index.js';
+import { MainComponent } from './components/Main/index.js';
+import { createRouter } from './router.js';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const main = MainComponent();
+const router = createRouter(main);
 
-setupCounter(document.querySelector('#counter'))
+const AppComponent = async () => {
+  const app = document.getElementById('app');
+  const navComponent = [
+    { route: '/', icon: logo },
+    { route: '/converter', icon: convert },
+    { route: '/rate', icon: rate },
+  ];
+
+  const nav = await Nav(router, navComponent);
+  app.appendChild(nav);
+  app.appendChild(main);
+};
+
+document.addEventListener('DOMContentLoaded', AppComponent);

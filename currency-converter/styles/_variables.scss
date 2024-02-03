@@ -1,0 +1,18 @@
+:root {
+  --body-background-gradient: linear-gradient(
+    90deg,
+    rgba(186, 102, 255, 0.18531162464985995) 0%,
+    rgba(9, 9, 121, 0.13769257703081228) 46%,
+    rgba(255, 75, 130, 0.08167016806722693) 100%
+  );
+
+  --app-background-gradient: linear-gradient(
+    97deg,
+    rgba(248, 247, 252, 1) 0%,
+    rgba(250, 248, 249, 1) 46%,
+    rgba(254, 249, 247, 1) 100%
+  );
+
+  --primary: #546de4;
+  --secondary: #e6e9fc;
+}
