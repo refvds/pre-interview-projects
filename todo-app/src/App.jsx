@@ -9,8 +9,8 @@ function App() {
   console.log(todos);
   return (
     <>
-      <TodoForm setTodos={setTodos} />
-      <TodoList todos={todos} />
+      <TodoForm setTodos={setTodos} todos={todos} />
+      <TodoList todos={todos} setTodos={setTodos} />
     </>
   );
 }

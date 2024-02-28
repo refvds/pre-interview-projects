@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const TodoForm = ({ setTodos }) => {
+export const TodoForm = ({ setTodos, todos }) => {
   const [todo, setTodo] = useState('');
 
   const inputHandler = (e) => setTodo(e.target.value);
@@ -8,14 +8,14 @@ export const TodoForm = ({ setTodos }) => {
   const keyDownHandler = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      setTodos((prev) => [...prev, todo]);
+      setTodos((prev) => [...prev, { id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1, text: todo }]);
       setTodo('');
     }
   };
 
   const clickHandlder = (e) => {
     e.preventDefault();
-    setTodos((prev) => [...prev, todo]);
+    setTodos((prev) => [...prev, { id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1, text: todo }]);
     setTodo('');
   };
 
