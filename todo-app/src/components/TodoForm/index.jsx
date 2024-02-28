@@ -8,7 +8,14 @@ export const TodoForm = ({ setTodos, todos }) => {
   const addTodo = (e) => {
     e.preventDefault();
     if (todo.length <= 14 && todo.length !== 0) {
-      setTodos((prev) => [...prev, { id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1, text: todo }]);
+      setTodos((prev) => [
+        ...prev,
+        {
+          id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1,
+          text: todo,
+          checked: false,
+        },
+      ]);
       setTodo('');
     }
   };

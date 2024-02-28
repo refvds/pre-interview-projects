@@ -1,15 +1,17 @@
-import React from 'react';
-
 export const TodoList = ({ todos, setTodos }) => {
   const deleteHandle = (id) => {
     const updatedTodoList = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodoList);
   };
 
-  const todoList = todos.map((todo, index) => (
+  const handleCheck = (id) => {
+    setTodos((prev) => prev.map((todo) => (todo.id === id ? { ...todo, checked: !todo.checked } : todo)));
+  };
+
+  const todoList = todos.map((todo) => (
     <li key={todo.id}>
-      <input type='checkbox' id='todo' />
-      <label htmlFor='todo'>{todo.text}</label>
+      <input type='checkbox' id={todo.id} onChange={() => handleCheck(todo.id)} />
+      <label htmlFor={todo.id}>{todo.text}</label>
       <button onClick={(e) => deleteHandle(todo.id)}>delete</button>
     </li>
   ));
