@@ -1,16 +1,16 @@
+import { useState } from 'react';
 import './App.css';
-import { AddButton } from './components/AddButton';
-import { TaskInput } from './components/TaskInput';
-import { TaskList } from './components/TaskList';
+
+import { TodoList } from './components/TodoList';
+import { TodoForm } from './components/TodoForm';
 
 function App() {
+  const [todos, setTodos] = useState([]);
+  console.log(todos);
   return (
     <>
-      <header>
-        <TaskInput />
-        <AddButton />
-      </header>
-      <TaskList />
+      <TodoForm setTodos={setTodos} />
+      <TodoList todos={todos} />
     </>
   );
 }
