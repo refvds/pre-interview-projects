@@ -1,33 +1,36 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuid } from 'uuid';
+import { addTodo } from '../../store/todoSlice';
 
-export const TodoForm = ({ setTodos, todos }) => {
+export const TodoForm = () => {
   const [todo, setTodo] = useState('');
+  const dispatch = useDispatch();
 
   const inputHandler = (e) => setTodo(e.target.value);
 
-  const addTodo = (e) => {
+  const addTodoItem = (e) => {
     e.preventDefault();
     if (todo.length <= 14 && todo.length !== 0) {
-      setTodos((prev) => [
-        ...prev,
-        {
-          id: todos.length > 0 ? todos[todos.length - 1].id + 1 : 1,
+      dispatch(
+        addTodo({
+          id: uuid(),
           text: todo,
           checked: false,
-        },
-      ]);
+        })
+      );
       setTodo('');
     }
   };
 
   const keyDownHandler = (e) => {
     if (e.key === 'Enter') {
-      addTodo(e);
+      addTodoItem(e);
     }
   };
 
   const clickHandlder = (e) => {
-    addTodo(e);
+    addTodoItem(e);
   };
 
   return (

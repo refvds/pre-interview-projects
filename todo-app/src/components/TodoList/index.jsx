@@ -1,18 +1,21 @@
-export const TodoList = ({ todos, setTodos }) => {
-  const deleteHandle = (id) => {
-    const updatedTodoList = todos.filter((todo) => todo.id !== id);
-    setTodos(updatedTodoList);
+import { useSelector } from 'react-redux';
+import { TodoItem } from '../TodoItem/Index';
+
+export const TodoList = () => {
+  const { todos, current } = useSelector((state) => state.todos);
+
+  const filteredList = () => {
+    if (current === 'finished') {
+      return todos.filter((todo) => todo.checked === true);
+    } else if (current === 'unfinished') {
+      return todos.filter((todo) => todo.checked === false);
+    }
+    return todos;
   };
 
-  const handleCheck = (id) => {
-    setTodos((prev) => prev.map((todo) => (todo.id === id ? { ...todo, checked: !todo.checked } : todo)));
-  };
-
-  const todoList = todos.map((todo) => (
+  const todoList = filteredList().map((todo) => (
     <li key={todo.id}>
-      <input type='checkbox' id={todo.id} onChange={() => handleCheck(todo.id)} />
-      <label htmlFor={todo.id}>{todo.text}</label>
-      <button onClick={(e) => deleteHandle(todo.id)}>delete</button>
+      <TodoItem id={todo.id} text={todo.text} checked={todo.checked} />
     </li>
   ));
 

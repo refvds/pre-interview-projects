@@ -1,17 +1,38 @@
 import { useState } from 'react';
+import { Provider } from 'react-redux';
 import './App.css';
 
 import { TodoList } from './components/TodoList';
 import { TodoForm } from './components/TodoForm';
+import { TodoFilters } from './components/TodoFilters';
+import { store } from './store';
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  console.log(todos);
+  // const [todos, setTodos] = useState({
+  //   all: {
+  //     arr: [],
+  //     status: true,
+  //   },
+  //   solved: {
+  //     arr: todos.all.filter((todo) => todo.checked === true),
+  //     status: false,
+  //   },
+  //   unsolved: {
+  //     arr: todos.all.filter((todo) => todo.checked === false),
+  //     status: false,
+  //   },
+  // });
+  // console.log(todos);
+
+  // const solved = todos.filter((todo) => todo.checked === true);
+  // const unsolved = todos.filter((todo) => todo.checked === false);
+
   return (
-    <>
-      <TodoForm setTodos={setTodos} todos={todos} />
-      <TodoList todos={todos} setTodos={setTodos} />
-    </>
+    <Provider store={store}>
+      <TodoForm />
+      <TodoFilters />
+      <TodoList />
+    </Provider>
   );
 }
 
